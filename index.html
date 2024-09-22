@@ -28,11 +28,52 @@
         <span>Soy tu burrito 😄😂</span>
     </div>
     <br>
-    <div class="button">
-        <button class="botones">
-            <a href="flower.html" style="color: #fff;">😇PRECIONAME AQUI!!😇</a>
-        </button>
+    <button class="botones" onclick="abrirModal()">
+        <a style="color: #fff;">😇PRECIONAME AQUI!!😇</a>
+    </button>
+
+    <div class="modal" id="miModal">
+        <div class="modal-content">
+            <h2>¡Hola! 🥰</h2>
+            <p>Por favor, ingresa el código:</p>
+            <input type="text" id="codigo" placeholder="Código aquí">
+            <br><br>
+            <button onclick="verificarCodigo()">Enviar</button>
+            <div id="mensaje" class="carita"></div>
+        </div>
     </div>
+
+    <script>
+        function abrirModal() {
+            document.getElementById('miModal').style.display = 'block';
+        }
+
+        function cerrarModal() {
+            document.getElementById('miModal').style.display = 'none';
+        }
+
+        function verificarCodigo() {
+            const codigo = document.getElementById('codigo').value;
+            const mensaje = document.getElementById('mensaje');
+
+            // Verifica si el código es correcto (personaliza la condición)
+            if (codigo === "burrito") {
+                setTimeout(() => {
+                    window.location.href = "flower.html";
+                }, 2000);
+            } else {
+                mensaje.innerHTML = "😢 Código incorrecto. Inténtalo de nuevo.";
+                // Puedes agregar un tiempo de espera para limpiar el mensaje si lo deseas
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('miModal');
+            if (event.target === modal) {
+                cerrarModal();
+            }
+        }
+    </script>
 
 </body>
 
