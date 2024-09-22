@@ -65,6 +65,9 @@
                 mensaje.innerHTML = "😢 Código incorrecto. Inténtalo de nuevo.";
                 // Puedes agregar un tiempo de espera para limpiar el mensaje si lo deseas
             }
+            // Borra el campo y cierra el modal
+            document.getElementById('codigo').value = ""; // Limpia el campo
+            cerrarModal(); // Cierra el modal
         }
 
         window.onclick = function(event) {
